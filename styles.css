@@ -1,0 +1,116 @@
+
+/* Reset margin and padding for body and all elements within it to ensure full width */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+header {
+    background-color: #333;
+    color: #ffffff;
+    padding: 10px 20px; /* Adjust padding as needed */
+    text-align: center;
+    width: 100vw; /* Full viewport width */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    grid-area: header;
+    margin: 0; /* Ensure no margin */
+}
+
+nav {
+    text-align: center;
+    background-color: #333;
+    grid-area: nav;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+nav ul li a:visited {
+    color: gray;
+    text-decoration: none;
+}
+nav ul li a:focus {
+    color: blue;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    color: cyan;
+    text-decoration: none;
+}
+nav ul li a:active {
+    color: red;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    grid-area: main;
+}
+
+aside {
+    padding: 20px;
+    grid-area: aside;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%; /* Ensures the footer extends full width */
+    bottom: 0;
+    grid-area: footer;
+}
+
+/* Base styles for mobile devices (one-column layout) */
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "aside"
+        "footer";
+}
+
+/* Styles for tablets (two-column layout) */
+@media (min-width: 600px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        grid-template-areas: 
+            "header header"
+            "nav nav"
+            "main aside"
+            "footer footer";
+    }
+}
+
+/* Styles for desktops (three-column layout) */
+@media (min-width: 1024px) {
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr; /* Three columns with the middle one wider */
+        grid-template-areas: 
+            "header header header"
+            "nav nav nav"
+            "aside main aside"
+            "footer footer footer";
+    }
+}
